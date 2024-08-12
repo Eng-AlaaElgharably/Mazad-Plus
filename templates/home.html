@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Mazad Plus
+{% endblock title %}
+{% block content %}
+<div class="home-page-auctions">
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+    <h1 class="title-page">Live Auctions</h1>
+    <div class="live-home-page-auctions">
+        {% for auction in auctions %}
+        {% if auction.status == "Live" %}
+        <a href="auction/{{auction.pk}}">
+            <div class="home-page-auction">
+                <img class="image-home-page-auction" src="{{auction.image.url}}" alt="image auction">
+                <h1 class="title-home-page-auction">{{auction.title}}</h1>
+                <p class="status-home-page-auction">{{auction.status}}</p>
+            </div>
+            <div class="background-home-page-auction"></div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+    <h1 class="title-page">Soon Auctions</h1>
+    <div class="soon-home-page-auctions">
+        {% for auction in auctions %}
+        {% if auction.status == "Soon" %}
+        <a href="auction/{{auction.pk}}">
+            <div class="home-page-auction">
+                <img class="image-home-page-auction" src="{{auction.image.url}}" alt="image auction">
+                <h1 class="title-home-page-auction">{{auction.title}}</h1>
+                <p class="status-home-page-auction">{{auction.status}}</p>
+            </div>
+            <div class="background-home-page-auction"></div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+    <h1 class="title-page">Expired Auctions</h1>
+    <div class="expired-home-page-auctions">
+        {% for auction in auctions %}
+        {% if auction.status == "Expired" %}
+        <a href="auction/{{auction.pk}}">
+            <div class="home-page-auction">
+                <img class="image-home-page-auction" src="{{auction.image.url}}" alt="image auction">
+                <h1 class="title-home-page-auction">{{auction.title}}</h1>
+                <p class="status-home-page-auction">{{auction.status}}</p>
+            </div>
+            <div class="background-home-page-auction"></div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

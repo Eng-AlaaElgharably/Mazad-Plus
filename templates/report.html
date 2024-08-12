@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    Auction Report
+{% endblock title %}
+{% block content %}
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+    <h1 class="title-page">Auction Report</h1>
+    <div class="auctions-table">
+        <div class="table-header">
+            <p class="title-cell">Title</p>
+            <p class="startprice-cell">Start Price</p>
+            <p class="status-cell">Status</p>
+            <p class="timeend-cell">Time End</p>
+            <p class="creator-cell">Creator</p>
+            <p class="winner-cell">Winner</p>
+        </div>
+        {% for auction in auctions %}
+            <div class="table-row">
+                <p class="title-cell">{{auction.title}}</p>
+                <p class="startprice-cell">{{auction.startprice}}</p>
+                <p class="status-cell">{{auction.status}}</p>
+                <p class="timeend-cell">{{auction.timeend}}</p>
+                <p class="creator-cell">{{auction.creator.first_name}} {{auction.creator.last_name}}</p>
+                <p class="winner-cell">{{auction.winner.first_name}} {{auction.winner.last_name}}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content%}

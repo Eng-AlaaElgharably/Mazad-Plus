@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    Edit Profile
+{% endblock title %}
+{% block content %}
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+    <h1 class="title-page">Edit Profile</h1>
+    {% if messages %}
+        {% for message in messages%}
+            <div class="message {{message.tags}}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form class="edit-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in u_form %}
+            {{field.label_tag}}
+            {{field}}
+            {% for error in field.errors %}
+                <div class="message error">{{error}}</div>
+            {% endfor %}
+        {% endfor %}
+        {% for field in p_form %}
+            {{field.label_tag}}
+            {{field}}
+            {% for error in field.errors %}
+                <div class="message error">{{error}}</div>
+            {% endfor %}
+        {% endfor %}
+        <input class="input-submit-edit-page" type="submit" value="Update">
+    </form>
+{% endblock content %}

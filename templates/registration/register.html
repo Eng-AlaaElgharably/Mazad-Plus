@@ -1,0 +1,42 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alaa Elgharably">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>Mazad Plus</title>
+        <link rel="stylesheet" href="{% static 'css/alaastyle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/registerandlogin.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}">
+        <script src="https://kit.fontawesome.com/7db79f507f.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="register-page">
+                {% if messages %}
+                {% for message in messages%}
+                <div class="message {{message.tags}}">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+                <h1 class="title-register-page">Register</h1>
+                <form class="register-form" method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {{field.label_tag}}
+                    {{field}}
+                    {% for error in field.errors %}
+                    <div class="message error">{{error}}</div>
+                    {% endfor %}
+                    {% endfor %}
+                    <input class="input-submit-register-page" type="submit" value="register">
+                </form>
+                <div class="a-login-register">
+                    Already have an account? <a class="a-tag-login-register" href="{% url 'login' %}">login</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

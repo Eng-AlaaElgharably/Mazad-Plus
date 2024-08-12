@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300;1,500;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Saira', sans-serif;
+  height: auto;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+input, textarea {
+  width: calc(100% - 20px);
+  height: 50px;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid #eee;
+  margin: 10px;
+  background: rgba(1, 1, 1, 0);
+  color: #000;
+}
+
+input:focus, textarea:focus {
+  border: 0;
+  border-bottom: 1px solid #fff;
+  outline: 0;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #aaa;
+}
+
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: #aaa;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #aaa;
+}
+
+label {
+  padding: 10px;
+}
+
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.container {
+  overflow: hidden;
+}
+/*# sourceMappingURL=alaastyle.css.map */

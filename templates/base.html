@@ -1,0 +1,99 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alaa Elgharably">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>{% block title %}Mazad Plus {% endblock title %}</title>
+        <link rel="stylesheet" href="{% static 'css/alaastyle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}">
+        <script src="https://kit.fontawesome.com/7db79f507f.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="top-nav-bar">
+                <a href="/">
+                    <img class="logo" src="{% static 'images/logo.png' %}" alt="Mazad_Plus Logo">
+                </a>
+                <form class="search-form">
+                    <input type="text" class="text-search-form" placeholder="search for ..." name="textsearch">
+                    <input type="submit" class="button-search-form" value="search" name="buttonsearch">
+                </form>
+                {% if user.is_authenticated %}
+                <div class="profile-bar">
+                    <img class="profile-image" src="{{user.profile.image.url}}" alt="Profile Image" onclick="show()">
+                    <a href="{% url 'logout' %}" class="a-top-nav-bar">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+                </div>
+                {% else %}
+                <div class="profile-bar">
+                <a href="{% url 'register' %}" class="a-top-nav-bar">Register</a>
+                <a href="{% url 'login' %}" class="a-top-nav-bar">Login</a>
+                </div>
+                {% endif %}
+            </div>
+            {% if user.is_authenticated %}
+            <hr class="hr-nav-bar">
+            <div class="nav-bar">
+                <a href="{% url 'edit' %}" class="a-profile-page">Edit Profile</a>
+                <a href="" class="a-profile-page">My Auctions</a>
+                <a href="{% url 'addauction' %}" class="a-profile-page">Add Auction</a>
+                <a href="" class="a-profile-page">Payment</a>
+                {% if user.is_staff %}
+                    <a href="{% url 'report' %}" class="a-profile-page">Report</a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </header>
+        <hr>
+        <div class="the-page">
+        {% block content %}
+        {% endblock content %}
+        </div>
+        <hr>
+        <footer>
+            <div class="socialmedia-icons">
+                <a href="#" class="contact-icon" style="color:#1877f2;"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="contact-icon" style="color:#c32aa3;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="contact-icon" style="color:#1877f2;"><i class="fa-brands fa-facebook-messenger"></i></a>
+                <a href="#" class="contact-icon" style="color:#25d366;"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="contact-icon" style="color:#0088cc;"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="contact-icon" style="color:#ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="contact-icon" style="color:#1da1f2;"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="contact-icon" style="color:#db4437;"><i class="fa-brands fa-google-plus"></i></a>
+                <a href="#" class="contact-icon" style="color:#0a66c2;"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="contact-icon" style="color:#010101;"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="contact-icon" style="color:#a4c639;"><i class="fa-brands fa-android"></i></a>
+                <a href="#" class="contact-icon" style="color:#6001d2"><i class="fa-solid fa-envelope"></i></a>                
+            </div>
+            <hr>
+            <div class="a-pages">
+                <a href="" class="a-page">Home</a>
+                <a href="" class="a-page">About Us</a>
+                <a href="" class="a-page">Privacy Policy & Usage Agreement</a>
+                <a href="" class="a-page">Contact Us</a>
+            </div>
+            <div class="website-rights">Mazad Plus &copy; 2022</div>
+        </footer>
+        <script>
+            function show(){
+                x = document.querySelector(".nav-bar");
+                y = document.querySelector(".hr-nav-bar")
+                if (x.style.display === "flex"){
+                    x.style.display = "none"
+                    y.style.display = "none"
+                }
+                else {
+                    x.style.display = "flex"
+                    y.style.display = "block"
+                }
+            }
+        </script>
+    </body>
+</html>

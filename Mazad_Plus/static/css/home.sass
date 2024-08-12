@@ -1,0 +1,337 @@
+$dark: #34495e
+$blue: #3498db
+$red: #e74c3c
+$yellow: #f1c40f
+//base page
+.top-nav-bar
+    height: 100px
+    overflow: hidden
+    //box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+.text-search-form
+    width: 400px
+.button-search-form
+    width: 100px
+    background-color: $red
+    transition: all 0.5s linear
+    color: #fff
+    font-weight: bold
+    cursor: pointer
+    &:hover
+        background-color: $yellow
+.profile-bar
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+.profile-image 
+    width: 100px
+    height: 100px
+    padding: 10px
+    border-radius: 50%
+    cursor: pointer
+.nav-bar
+    height: 50px
+    display: none
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+    //box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+.a-profile-page
+    padding: 10px
+    transition: all 0.5s ease-in
+    &:hover
+        background-color: $yellow
+.a-top-nav-bar 
+    padding: 10px
+    margin: 10px
+    transition: all 0.5s linear
+    &:hover
+        color: $yellow
+.hr-nav-bar 
+    display: none
+.socialmedia-icons
+    //box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 ) 
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+.contact-icon
+    font-size: 30px
+    padding: 10px
+    opacity: 0.5
+    text-align: center
+    &:hover
+        opacity: 1
+        transition: all 0.5s ease-in
+.a-pages 
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+    height: 50px
+.a-page
+    padding: 10px
+    margin: 10px
+    color: $dark
+    transition: all 0.5s linear
+    &:hover
+        color: $yellow
+.website-rights 
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 50px
+    color: #fff
+    background-color: $dark
+
+@media ( max-width: 900px )
+    .top-nav-bar
+        height: auto
+    .search-form
+        width: 100%
+    .text-search-form
+        width: calc(80% - 20px)
+    .button-search-form
+        width: calc(20% - 20px)
+        float: right
+@media ( max-width: 610px )
+    .nav-bar
+        height: auto
+    .a-profile-page
+        width: 100%
+    .a-pages
+        height: auto
+    a.a-page
+        width: 100%
+@media  ( max-width: 500px )
+    .text-search-form
+        width: calc( 100% - 120px )
+    .button-search-form
+        width: 80px
+//end base page
+//start home page
+.live-home-page-auctions, .soon-home-page-auctions, .expired-home-page-auctions 
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+.home-page-auction
+    float: left
+    padding: 10px
+    margin: 10px
+    overflow: hidden
+    box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+    width: 220px
+.image-home-page-auction
+    width: 200px
+    height: 200px
+.title-home-page-auction 
+    height: 50px
+    overflow: hidden
+.status-home-page-auction
+    text-align: center
+    font-weight: bold
+    color: $red
+@keyframes background-height
+    0%
+        background-color: #fff
+    100%
+        background-color: $yellow
+.background-home-page-auction
+    width: 240px
+    height: 322px
+    position: absolute
+    &:hover
+        background-color: $yellow
+        opacity: 0.8
+        animation: background-height 1s
+        
+//end home page
+//start edit page
+.the-page
+    margin: 10px
+    padding: 10px
+.circles
+    width: 100px
+    height: 25px
+    margin: 0 auto
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+.circle1
+    width: 15px
+    height: 15px
+    border-radius: 50%
+    background-color: $red
+    margin: 5px
+    float: left
+.circle2 
+    width: 15px
+    height: 15px
+    border-radius: 50%
+    background-color: $yellow
+    margin: 5px
+    float: left
+.circle3
+    width: 15px
+    height: 15px
+    border-radius: 50%
+    background-color: $blue
+    margin: 5px
+    float: left
+.title-page 
+    text-align: center
+    color: $dark
+.edit-form
+    color: $dark
+.edit-form input
+    color: $blue
+.input-submit-edit-page, .input-submit-add-auction-page, .input-submit-bid-form
+    color: #fff!important
+    background-color: $red
+    border: 0
+    cursor: pointer
+    transition: all 0.5s linear
+    &:hover
+        background-color: $yellow
+.message.error 
+  text-align: center
+  border-radius: 5px
+  color: #D8000C
+  background-color: #FFD2D2
+.message.success 
+  text-align: center
+  border-radius: 5px
+  color: #4F8A10
+  background-color: #DFF2BF
+
+//end edit page    
+//start auction page
+.auction-page 
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: space-evenly
+    align-items: center
+.auction-info 
+    width: 500px
+    padding: 10px
+    margin: 10px
+    box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+.auction-creator 
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+    box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+    border-radius: 5px
+    background-color: $yellow
+.auction-image
+    width: 100%
+    height: auto
+    border-radius: 5px 
+.bids-info
+    width: 500px
+    padding: 10px
+    margin: 10px
+    box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+.time-status, .highest-bid
+    color: $red
+    text-align: center
+.winner-info 
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+    padding: 10px
+    margin: 10px
+    box-shadow: 0 2px 6px 2px hsla(0,0 ,0 ,0.2 )
+    background-color: $blue
+    color: $dark
+    border-radius: 5px
+
+.winner-info-1, .winner-info-2
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+//end auction page
+//start report page
+.auctions-table 
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+    width: fit-content
+    margin: 0 auto
+.table-header, .table-row
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-content: center
+    justify-content: space-around
+    align-items: center
+    padding: 10px
+    border-top: 1px solid $blue
+.title-cell 
+    width: 300px
+    text-align: center
+.startprice-cell 
+    width: 100px
+    text-align: center
+.status-cell 
+    width: 100px
+    text-align: center
+.timeend-cell 
+    width: 200px
+    text-align: center
+.creator-cell, .winner-cell
+    width: 150px
+    text-align: center
+
+
+
+
+
+
+table 
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: center
+    justify-content: center
+    align-items: center
+th, td 
+  border: 1px solid $blue
+  border-collapse: collapse
+  color: $dark
+th, td 
+  height: 50px
+//end report page

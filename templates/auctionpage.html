@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{auction.title}}
+{% endblock title %}
+{% block content %}
+{% if user == auction.creator %}
+        <div class="winner-info" id="winner-info">
+            <h1> Winner until now </h1>
+            <div class="winner-info-1">
+                <img src="{{auction.winner.profile.image.url}}" class="profile-image" alt="winner image">
+                <h3>{{auction.winner.first_name}} {{auction.winner.last_name}}</h3>
+            </div>
+            <div class="winner-info-1">
+                <p>{{auction.winner.profile.phone}} {{auction.winner.profile.address}}</p>
+            </div>       
+        </div>        
+    {% endif %}
+    <div class="auction-page">
+        <div class="auction-info">
+            <div class="auction-creator">
+                <img src="{{auction.creator.profile.image.url}}" class="profile-image" alt="creator image">
+                <h3>{{auction.creator.first_name}} {{auction.creator.last_name}}</h3>
+            </div> 
+            <h1>{{auction.title}}</h1>
+            <img src="{{auction.image.url}}" class="auction-image" alt="auction-image">
+            <p>{{auction.description}}</p>
+        </div>
+        <div class="bids-info" class="bids-info-id">
+            {% if auction.status == "Live" %}
+                <h2 class="time-status">{{auction.timeend}}</h2>
+            {% else %}
+                <h2 class="time-status">{{auction.status}}</h2>
+            {% endif%}
+            <h4>Start Price: {{auction.startprice}}</h4>
+            {% if bids%}
+                <div class="circles">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                </div>
+                <h1 class="title-page">Highest Bid</h1>
+                <h2 class="highest-bid" id="highest-bid">{{bids.auction_balance}}</h2>
+            {% endif%}
+            {% if user.is_authenticated and user != auction.creator and auction.status == "Live"%}
+                <div class="circles">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                </div>
+                <h1 class="title-page">Add Bid</h1>
+                {% if messages %}
+                {% for message in messages%}
+                    <div class="message {{message.tags}}">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+                <form class="addbid-form" method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{field.label_tag}}
+                        {{field}}
+                        {% for error in field.errors %}
+                            <div class="message error">{{error}}</div>
+                        {% endfor %}
+                    {% endfor %}
+                    <input class="input-submit-bid-form" type="submit" value="Bid">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        setInterval(function() { 
+            var url = window.location.href;
+            $.get(url, function(data){ 
+                $("body").html(data);
+            });  
+        }, 20000);
+    </script>
+{% endblock content %}
