@@ -1,0 +1,65 @@
+.register-page {
+  width: 500px;
+  margin: 20px auto;
+  background-color: #34495e;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.title-register-page {
+  text-align: center;
+  padding: 10px;
+}
+
+.register-page input {
+  color: #fff;
+}
+
+.input-submit-register-page {
+  background-color: #3498db;
+  border: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.input-submit-register-page:hover {
+  background-color: #f1c40f;
+}
+
+.helptext {
+  padding: 10px;
+  display: block;
+  color: #3498db;
+}
+
+.message.error {
+  text-align: center;
+  border-radius: 5px;
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.message.success {
+  text-align: center;
+  border-radius: 5px;
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}
+
+.a-login-register {
+  padding: 10px;
+}
+
+.a-tag-login-register {
+  color: #3498db !important;
+}
+
+@media (max-width: 540px) {
+  .register-page {
+    width: calc( 100% - 40px);
+    margin: 20px;
+  }
+}
+/*# sourceMappingURL=registerandlogin.css.map */

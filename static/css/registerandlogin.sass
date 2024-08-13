@@ -1,0 +1,54 @@
+$dark: #34495e
+$blue: #3498db
+$red: #e74c3c
+$yellow: #f1c40f
+
+.register-page 
+  width: 500px
+  margin: 20px auto
+  background-color: $dark
+  padding: 10px
+  color: #fff
+  border-radius: 5px
+
+.title-register-page 
+  text-align: center
+  padding: 10px
+
+.register-page input
+  color: #fff
+
+.input-submit-register-page
+  background-color: $blue
+  border: 0
+  cursor: pointer
+  transition: all 0.5s linear
+  &:hover
+    background-color: $yellow
+
+.helptext 
+  padding: 10px
+  display: block
+  color: $blue
+
+.message.error 
+  text-align: center
+  border-radius: 5px
+  color: #D8000C
+  background-color: #FFD2D2
+
+.message.success 
+  text-align: center
+  border-radius: 5px
+  color: #4F8A10
+  background-color: #DFF2BF
+
+.a-login-register
+  padding: 10px
+.a-tag-login-register
+  color: $blue !important
+
+@media (max-width: 540px) 
+  .register-page
+    width: calc( 100% - 40px )
+    margin: 20px
